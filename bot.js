@@ -1,37 +1,44 @@
 const mineflayer = require('mineflayer')
 const express = require('express')
 
-// Веб-сервер чтобы Render не спал
 const app = express()
 app.get('/', (req, res) => res.send('Bot is alive!'))
 app.listen(8080, () => console.log('Web server running'))
 
-// Настройки — замени HOST на адрес твоего Aternos сервера
 const HOST = 'megasosalka.aternos.me'
 const PORT = 16429
 const USERNAME = 'AFK_Bot'
 
 function createBot() {
+  console.log(`Подключаюсь к ${HOST}:${PORT}...`)
+  
   const bot = mineflayer.createBot({
     host: HOST,
     port: PORT,
     username: USERNAME,
-    version: '1.20.1'
+    version: false // автоопределение версии
   })
 
-  bot.on('spawn', () => console.log('Бот зашёл на сервер!'))
+  bot.on('spawn', () => console.log('✅ Бот зашёл на сервер!'))
+  
+  bot.on('login', () => console.log('✅ Логин успешен!'))
+  
   bot.on('kicked', (reason) => {
-    console.log('Кикнули:', reason)
-    setTimeout(createBot, 5000) // переподключение через 5 сек
+    console.log('❌ Кикнули:', JSON.stringify(reason))
+    setTimeout(createBot, 5000)
   })
+  
   bot.on('error', (err) => {
-    console.log('Ошибка:', err)
+    console.log('❌ Ошибка:', err.message)
     setTimeout(createBot, 5000)
   })
-  bot.on('end', () => {
-    console.log('Отключился, переподключаюсь...')
+  
+  bot.on('end', (reason) => {
+    console.log('🔌 Отключился. Причина:', reason)
     setTimeout(createBot, 5000)
   })
+
+  bot._client.on('connect', () => console.log('🔗 TCP соединение установлено!'))
 }
 
 createBot()

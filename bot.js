@@ -7,8 +7,8 @@ app.get('/', (req, res) => res.send('Bot is alive!'))
 app.listen(8080, () => console.log('Web server running'))
 
 // Настройки — замени HOST на адрес твоего Aternos сервера
-const HOST = 'твой.сервер.aternos.me'
-const PORT = 25565
+const HOST = 'megasosalka.aternos.me'
+const PORT = 16429
 const USERNAME = 'AFK_Bot'
 
 function createBot() {

@@ -16,15 +16,15 @@ def run_web():
 Thread(target=run_web).start()
 
 # Настройки — замени на свои
-HOST = "твой.сервер.aternos.me"
-PORT = 25565
+HOST = "megasosalka.aternos.me"
+PORT = 16429
 USERNAME = "AFK_Bot"
 
 bot = mineflayer.createBot({
     'host': HOST,
     'port': PORT,
     'username': USERNAME,
-    'version': '1.20.1'  # версия твоего сервера
+    'version': '1.21.11'  # версия твоего сервера
 })
 
 @bot.on('spawn')

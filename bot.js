@@ -5,7 +5,7 @@ const app = express()
 app.get('/', (req, res) => res.send('Bot is alive!'))
 app.listen(8080, () => console.log('Web server running'))
 
-const HOST = 'megasosalka.aternos.me'
+const HOST = 'megasosalka.aternos.me:16429'
 const PORT = 16429
 const USERNAME = 'sdfsfsdfsdsd'
 

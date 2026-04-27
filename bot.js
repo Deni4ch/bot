@@ -7,7 +7,7 @@ app.listen(8080, () => console.log('Web server running'))
 
 const HOST = 'megasosalka.aternos.me'
 const PORT = 16429
-const USERNAME = 'AFK_Bot'
+const USERNAME = 'sdfsfsdfsdsd'
 
 function createBot() {
   console.log(`Подключаюсь к ${HOST}:${PORT}...`)

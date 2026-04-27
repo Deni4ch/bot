@@ -12,11 +12,12 @@ const USERNAME = 'sdfsfsdfsdsd'
 function createBot() {
   console.log(`Подключаюсь к ${HOST}:${PORT}...`)
   
-  const bot = mineflayer.createBot({
+const bot = mineflayer.createBot({
     host: HOST,
     port: PORT,
     username: USERNAME,
-    version: false // автоопределение версии
+    version: 1.21.11,
+    auth: 'offline'  // ← добавь эту строку
   })
 
   bot.on('spawn', () => console.log('✅ Бот зашёл на сервер!'))
